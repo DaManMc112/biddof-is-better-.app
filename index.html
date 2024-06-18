@@ -3,66 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>Admin Panel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
-
-.countdown-container {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#countdown {
-    font-size: 2em;
-    color: #333;
-}
-
-        </style>
 <body>
-    <div class="countdown-container">
-        <h1>Win</h1>
-        <p>Win is a roblox external and a comabat master cheat to! the combat master cheat is coming soon!</p>
-        <div id="countdown"></div>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div id="login-panel">
+            <input type="password" id="password" placeholder="Enter Password">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+        <div id="owner-panel" class="hidden">
+            <h2>Website Visitor Count</h2>
+            <p id="visitor-count">Loading...</p>
+        </div>
+        <div id="admin-panel" class="hidden">
+            <h2>Task List</h2>
+            <ul id="task-list"></ul>
+            <input type="text" id="new-task" placeholder="New Task">
+            <button onclick="addTask()">Add Task</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
- <script>
-     // Set the date and time to count down to
-const countdownDate = new Date("Jul 1, 2024 00:00:00").getTime();
-
-// Update the countdown every second
-const countdownInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result in the element with id="countdown"
-    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-    // If the countdown is over, display a message
-    if (distance < 0) {
-        clearInterval(countdownInterval);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-    }
-}, 1000);
-
- </script>
 </html>
